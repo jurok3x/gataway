@@ -18,7 +18,6 @@ public class GoogleOauthService {
 
     private static final String AUTH_GRANT = "authorization_code";
     private static final int TIMEOUT_SECONDS = 5;
-    private static final String GOOGLE_API_BASE_URL = "https://oauth2.googleapis.com";
     private static final String GOOGLE_AUTH_BASE_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 
     private String clientId;

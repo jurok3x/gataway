@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 public class WebClientConfig {
 
-    private static final String GOOGLE_API_BASE_URL = "https://www.googleapis.com";
+    private static final String GOOGLE_API_BASE_URL = "https://oauth2.googleapis.com";
     private static final int TIMEOUT_SECONDS = 10;
 
     @Bean
