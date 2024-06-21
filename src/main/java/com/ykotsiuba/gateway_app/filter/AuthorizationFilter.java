@@ -24,12 +24,12 @@ public class AuthorizationFilter implements GlobalFilter, Ordered {
         if (exchange.getRequest().getPath().value().startsWith(PREFIX_API)) {
             return sessionService.checkSession(exchange)
                     .then(chain.filter(exchange))
-                    .onErrorResume(Exception.class, e -> sendUnauthorized(exchange));
+                    .onErrorResume(Exception.class, e -> sendUnauthorized(exchange, e));
         }
         return chain.filter(exchange);
     }
 
-    public static Mono<Void> sendUnauthorized(ServerWebExchange exchange) {
+    public static Mono<Void> sendUnauthorized(ServerWebExchange exchange, Exception e) {
         exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
         return exchange.getResponse().setComplete();
     }

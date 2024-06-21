@@ -32,6 +32,7 @@ public class SessionServiceImpl implements SessionService {
         }
         return userSessionRepository.findById(sessionCookie.getValue())
                 .flatMap(session ->
+
                         session.isExpired()
                                 ? Mono.error(new Exception("Session expired"))
                                 : Mono.just(session)
